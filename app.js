@@ -1,11 +1,13 @@
 let btn=document.querySelector("button");
 let speed=document.getElementById("speed");
 let sizeImg=38591904;
+let sizeImg=38591904;
 let TEST_COUNT=1;
 async function loadImg(){
     return new Promise(
         (resolve, reject)=>{
             let img= new Image();
+            img.src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Tokyo_Sky_Tree_2012_%E2%85%A3.JPG?"+ parseInt(Math.random()*1000);//added random things so that image is not cached
             img.src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Tokyo_Sky_Tree_2012_%E2%85%A3.JPG?"+ parseInt(Math.random()*1000);//added random things so that image is not cached
             let startTime=Date.now();
             img.onload=function(){
