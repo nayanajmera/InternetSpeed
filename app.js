@@ -35,7 +35,7 @@ btn.addEventListener("click", async function(){
         sumtestResults+=intSpeed;
     }
     let avgSpeed=sumtestResults/TEST_COUNT;
-    speed.innerText=`${avgSpeed} KBPS`;
+    speed.innerText=`${avgSpeed} Kbps`;
 });
 
 
