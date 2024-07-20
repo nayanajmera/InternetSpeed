@@ -1,12 +1,12 @@
 let btn=document.querySelector("button");
 let speed=document.getElementById("speed");
-let sizeImg=1013112;
+let sizeImg=38591904;
 let TEST_COUNT=1;
 async function loadImg(){
     return new Promise(
         (resolve, reject)=>{
             let img= new Image();
-            img.src="./626328.jpg?"+ parseInt(Math.random()*1000);//added random things so that image is not cached
+            img.src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Tokyo_Sky_Tree_2012_%E2%85%A3.JPG?"+ parseInt(Math.random()*1000);//added random things so that image is not cached
             let startTime=Date.now();
             img.onload=function(){
                 let endTime=Date.now();
@@ -29,13 +29,15 @@ async function getInternetSpeed(){
     return speed_kbps;
 }
 btn.addEventListener("click", async function(){
-    let sumtestResults=0;
-    for(let i=0; i<TEST_COUNT; i++){
-        let intSpeed=await getInternetSpeed();
-        sumtestResults+=intSpeed;
-    }
-    let avgSpeed=sumtestResults/TEST_COUNT;
-    speed.innerText=`${avgSpeed} Kbps`;
+    // let sumtestResults=0;
+    // for(let i=0; i<TEST_COUNT; i++){
+    //     let intSpeed=await getInternetSpeed();
+    //     sumtestResults+=intSpeed;
+    // }
+    // let avgSpeed=sumtestResults/TEST_COUNT;
+    // speed.innerText=`${avgSpeed} Kbps`;
+    let intSpeed=await getInternetSpeed();
+    speed.innerText=`${intSpeed} Kbps or ${intSpeed/1024} Mbps`;
 });
 
 
