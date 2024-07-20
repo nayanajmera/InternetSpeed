@@ -82,6 +82,7 @@ function changeColor(clr){
 }
 let intervalId=null;
 let alreadyclicked=false;
+let timeout=null;
 btn.addEventListener("click", async function() {
         if(alreadyclicked==false)
         {
@@ -90,15 +91,19 @@ btn.addEventListener("click", async function() {
             btn.innerText=`Stop`;
             clearInterval(intervalId);
             intervalId = setInterval(mentionSpeed, 5000);
-            setTimeout(() => {
-                clearInterval(intervalId);
-                changeColor(`darkblue`);
-                btn.innerText=`Check Speed`;
-                alreadyclicked=false;
-            }, 60000);
+            if(alreadyclicked==true)
+            {
+                timeout=setTimeout(() => {
+                    clearInterval(intervalId);
+                    changeColor(`darkblue`);
+                    btn.innerText=`Check Speed`;
+                    alreadyclicked=false;
+                }, 60000);
+            }
         }
         else{
             alreadyclicked=false;
+            clearTimeout(timeout);
             clearInterval(intervalId);
             changeColor(`darkblue`);
             btn.innerText=`Check Speed`;
