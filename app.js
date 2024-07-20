@@ -1,6 +1,6 @@
 let btn=document.querySelector("button");
 let speed=document.getElementById("speed");
-let sizeImg=126639;
+let sizeImg=126639*8;
 let TEST_COUNT=1;
 async function loadImg(){
     return new Promise(
@@ -24,7 +24,7 @@ async function getInternetSpeed(){
         time=1;
     }
     time=time/1000;
-    let speed_bps = sizeImg*8/time;//size of Image is UNDEFINED
+    let speed_bps = sizeImg/time;//size of Image is UNDEFINED
     let speed_kbps= speed_bps/1024;//in kilobits per second
     return speed_kbps;
 }
