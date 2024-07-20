@@ -11,9 +11,12 @@ button{
     text-align: center;
     flex-direction: column;
 }
+.container img {
+    height : 12rem;
+}
 #speed{
     color : violet;
-    font-size: 2.5rem;
+    font-size: 4rem;
 }
 .container button{
     color: darkblue;
@@ -26,5 +29,5 @@ button{
 }
 h1{
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 5rem;
 }
