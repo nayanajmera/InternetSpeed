@@ -1,7 +1,7 @@
 let btn=document.querySelector("button");
 let speed=document.getElementById("speed");
 let sizeImg=3153018;
-let TEST_COUNT=100;
+let TEST_COUNT=5;
 async function loadImg(){
     return new Promise(
         (resolve, reject)=>{
