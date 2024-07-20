@@ -37,7 +37,7 @@ btn.addEventListener("click", async function(){
     // let avgSpeed=sumtestResults/TEST_COUNT;
     // speed.innerText=`${avgSpeed} Kbps`;
     let intSpeed=await getInternetSpeed();
-    speed.innerText=`${intSpeed} Kbps or ${intSpeed/1024} Mbps`;
+    speed.innerText=`${(intSpeed/1024).toFixed(2)} Mbps`;
 });
 
 

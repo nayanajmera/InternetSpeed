@@ -1,0 +1,27 @@
+button{
+    height : 10rem;
+    width : 10rem;
+    border-radius: 50%;
+}
+.container{
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+#speed{
+    color : violet;
+    font-size: 2.5rem;
+}
+.container button{
+    color: darkblue;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: grey;
+}
+h1{
+    text-align: center;
+    font-size: 3.5rem;
+}
