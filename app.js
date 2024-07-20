@@ -1,12 +1,12 @@
 let btn=document.querySelector("button");
 let speed=document.getElementById("speed");
-let sizeImg=3153018;
-let TEST_COUNT=5;
+let sizeImg=126639;
+let TEST_COUNT=1;
 async function loadImg(){
     return new Promise(
         (resolve, reject)=>{
             let img= new Image();
-            img.src="./3mb-jpg-example-file.jpg?"+ parseInt(Math.random()*1000);//added random things so that image is not cached
+            img.src="./626328.jpg?"+ parseInt(Math.random()*1000);//added random things so that image is not cached
             let startTime=Date.now();
             img.onload=function(){
                 let endTime=Date.now();
