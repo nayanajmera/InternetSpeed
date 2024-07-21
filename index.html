@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./image006.png">
+    <link id="favicon" rel="icon" href="./OIG2-removebg-preview.png" type="image/png">
     <link rel="stylesheet" href="style.css">
-    <title>CheetahSpeed</title>
+    <title>SpeedCheck</title>
 </head>
 <body>
     <h1>SpeedCheck</h1>
-        <div class="container">
-            <img src="./image006.png" alt="cheetah">
-            <h2 id="speed">0 Mbps</h2>
-            <button>Check Speed</button>
+    <div id="modeControl">
+        <span id="light-m">Light</span>
+        <div class="slider-container">
+            <div id="slider"></div>
         </div>
+        <span id="dark-m">Dark</span>
+    </div>
+    <div class="container">
+        <img src="./OIG2-removebg-preview.png" alt="cheetah">
+        <h2 id="speed"><span id="num-speed">0</span> <span id="unit">Mbps</span></h2>
+        <span id="avgSpeed"></span>
+        <button>Check Speed</button>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

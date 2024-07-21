@@ -1,7 +1,16 @@
 button{
-    height : 10rem;
-    width : 10rem;
+    height : 8rem;
+    width : 8rem;
     border-radius: 50%;
+    color : darkblue;
+    background-color: grey;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+#unit{
+    font-size: 1.8rem;
+    position: relative;
+    bottom : 1.5rem;
 }
 .container{
     height: 75vh;
@@ -17,17 +26,132 @@ button{
 #speed{
     color : violet;
     font-size: 4rem;
+    margin : 2rem;
+
 }
-.container button{
-    color: darkblue;
+button.dark-mode{
+    color:rgb(0, 200, 0);
+    background-color: #fff;
+}
+#avgSpeed{
+    margin-bottom: 1rem;
     font-size: 1.5rem;
-    font-weight: 700;
-    background-color: grey;
+    color : grey;
 }
 .container button:hover{
     cursor : pointer;
 }
 h1{
     text-align: center;
-    font-size: 5rem;
+    font-size: 4rem;
+}
+
+
+/* Slider button */
+#modeControl{
+    display: flex;
+    position : absolute;
+    right : 2rem;
+    top : 1rem;
+}
+.slider-container{
+    height: 1.5rem;
+    width : 3rem;
+    background-color: #2b2b2b;
+    border-radius: 1.5rem;
+    cursor: pointer;
+}
+.invisible{
+    opacity: 0.5;
+}
+#slider{
+    position: relative;
+    left : 0;
+    height: 1.5rem;
+    width : 1.5rem;
+    background-color: white;
+    border-radius: 50%;
+    transform: scale(0.9);
+    transition: 0.7s;
+}
+body{
+    transition: 0.7s;
+}
+#slider.active{
+    left: 1.5rem;
+    background-color: #2b2b2b;
+}
+.slider-container.white{
+    background-color: #fff;
+}
+#light-m,#dark-m{
+    font-size : 1.5rem;
+}
+/* Slider button */
+
+@media(max-width : 400px ){
+    h1{
+        font-size : 3rem;
+    }
+    #speed{
+        font-size: 3.5rem;
+    }
+    button{
+        height : 6.5rem;
+        width : 6.5rem;
+        border-radius: 50%;
+    }
+    #modeControl{
+        margin-bottom : 2rem;
+    }
+}
+@media(max-width : 280px){
+    h1{
+        font-size : 2.5rem;
+    }
+    #speed{
+        font-size: 3rem;
+    }
+    .container img{
+        height: 11rem;
+    }
+    button{
+        height : 6rem;
+        width : 6rem;
+        border-radius: 50%;
+    }
+}
+@media(max-width : 224px){
+    h1{
+        font-size : 2.3rem;
+    }
+    .container img{
+        height: 10rem;
+    }
+    #speed{
+        font-size: 2.8rem;
+    }
+}
+@media(max-width : 740px){
+    #modeControl
+    {
+        top : 95%;
+        right : 40%;
+    }
+}
+@media(max-width : 250px){
+    .slider-container{
+        height: 1rem;
+        width : 2rem;
+    }
+    #slider.active{
+        left: 1rem;
+    }
+    #slider{
+        height: 1rem;
+        width : 1rem;
+    }
+    #light-m,#dark-m{
+        font-size : 1rem;
+    }
 }
