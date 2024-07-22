@@ -1,3 +1,4 @@
+
 let btn=document.querySelector("button");
 let speed=document.getElementById("num-speed");
 let avgSpeed=document.getElementById("avgSpeed");
