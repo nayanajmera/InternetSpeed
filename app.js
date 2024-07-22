@@ -48,9 +48,9 @@ async function getInternetSpeed(){
         time=1;
     }
     time=time/1000;
-    time=90*time/100;//considering delay from urls
+    time=94*time/100;//considering delay from urls
     if(currentURL!=url1){
-        time=80*time/100;
+        time=85*time/100;
     }
     console.log(currentSize, time);
     let speed_bps = currentSize/time;//size of Image is in bits

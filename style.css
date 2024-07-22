@@ -24,7 +24,7 @@ button{
     height : 12rem;
 }
 #speed{
-    color : violet;
+    color : rgb(171, 166, 166);
     font-size: 4rem;
     margin : 2rem;
 
@@ -101,45 +101,6 @@ body{
         width : 6.5rem;
         border-radius: 50%;
     }
-    #modeControl{
-        margin-bottom : 2rem;
-    }
-}
-@media(max-width : 280px){
-    h1{
-        font-size : 2.5rem;
-    }
-    #speed{
-        font-size: 3rem;
-    }
-    .container img{
-        height: 11rem;
-    }
-    button{
-        height : 6rem;
-        width : 6rem;
-        border-radius: 50%;
-    }
-}
-@media(max-width : 224px){
-    h1{
-        font-size : 2.3rem;
-    }
-    .container img{
-        height: 10rem;
-    }
-    #speed{
-        font-size: 2.8rem;
-    }
-}
-@media(max-width : 740px){
-    #modeControl
-    {
-        top : 95%;
-        right : 40%;
-    }
-}
-@media(max-width : 250px){
     .slider-container{
         height: 1rem;
         width : 2rem;
@@ -153,5 +114,91 @@ body{
     }
     #light-m,#dark-m{
         font-size : 1rem;
+    }
+}
+@media(max-width : 280px){
+    h1{
+        position: relative;
+        top : 1rem;
+        font-size : 2.5rem;
+    }
+    #speed{
+        font-size: 3rem;
+    }
+    .container img{
+        height: 11rem;
+    }
+    button{
+        height : 6rem;
+        width : 6rem;
+        border-radius: 50%;
+    }
+    
+}
+@media(max-width : 224px){
+    h1{
+        font-size : 2.3rem;
+    }
+    .container img{
+        height: 10rem;
+    }
+    #speed{
+        font-size: 2.8rem;
+    }
+}
+@media(max-width : 210px){
+    h1{
+        font-size : 2rem;
+    }
+    .container img{
+        height: 9rem;
+    }
+    #speed{
+        font-size: 2.7rem;
+    }
+    button{
+        height : 6rem;
+        width : 6rem;
+    }
+}
+@media(max-width : 180px){
+    h1{
+        font-size : 1.6rem;
+        position: relative;
+        top : 2rem;
+    }
+    .container img{
+        height: 7rem;
+    }
+    #speed{
+        font-size: 2.4rem;
+    }
+    button{
+        height : 5.5rem;
+        width : 5.5rem;
+    }
+}
+@media(max-width : 300px){
+    .container #avgSpeed{
+        font-size: 1.2rem;;
+    }
+}
+@media(max-height : 600px){
+    .container img{
+        height : 6rem;
+    }
+    button{
+        margin-top:1rem;
+    }
+}
+@media(max-height : 500px){
+    .container img{
+        height : 5.5rem;
+    }
+    #checkSpeed{
+        margin-top:1rem;
+        height: 5rem;
+        width: 5rem;
+        font-size: 1rem;
     }
 }
