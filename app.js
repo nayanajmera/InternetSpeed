@@ -1,6 +1,7 @@
 let btn=document.querySelector("button");
 let speed=document.getElementById("num-speed");
 let avgSpeed=document.getElementById("avgSpeed");
+let unit=document.getElementById("unit");
 // slider code
 let btnSlider=document.querySelector(".slider-container");
 let slider=document.getElementById("slider");
@@ -16,12 +17,12 @@ let allSpeeds=[];
 let sizeImg1=32768*8; //32KB
 let sizeImg2=159744*8;//156KB
 let sizeImg4=8224768;//0.98mb or 1003.52KB
-// let sizeImg5=66890744;
+let sizeImg5=8361343*8;
 let url1="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Strigeria_Centipede_guarding_eggs.jpg/330px-Strigeria_Centipede_guarding_eggs.jpg?";
 let url2="https://upload.wikimedia.org/wikipedia/commons/f/f8/Chinta_Wrong_Direction.jpg?";
 // let url4="https://upload.wikimedia.org/wikipedia/commons/5/53/Panorama_of_3mb.jpg?";
 let url4="https://upload.wikimedia.org/wikipedia/commons/7/7a/2017-05-23_GuentherZ_Wien11_Zentralfriedhof_Gruppe97_Soldatenfriedhof_Wien_%28Zweiter_Weltkrieg%29_%28001%29.jpg?";
-// let url5="https://upload.wikimedia.org/wikipedia/commons/9/90/Teruel_overview_size_8MB_%2825441803782%29.jpg?";
+let url5="https://upload.wikimedia.org/wikipedia/commons/9/90/Teruel_overview_size_8MB_%2825441803782%29.jpg?";
 async function loadImg(currentURL){
     return new Promise(
         (resolve, reject)=>{
@@ -39,8 +40,8 @@ async function loadImg(currentURL){
         }
     );
 }
-let currentURL=url4;
-let currentSize=sizeImg4;
+let currentURL=url1;
+let currentSize=sizeImg1;
 async function getInternetSpeed(){
     let time=await loadImg(currentURL);//in milliseconds
     if(time<1){
@@ -48,63 +49,69 @@ async function getInternetSpeed(){
         time=1;
     }
     time=time/1000;
-    time=94*time/100;//considering delay from urls
-    if(currentURL!=url1){
-        time=85*time/100;
+    let appTime=90*time/100;//considering delay from urls
+    if(currentURL==url1){
+        appTime=78*time/100;
+    }
+    else if(currentURL==url2){
+        appTime=83*time/100;
     }
     console.log(currentSize, time);
     let speed_bps = currentSize/time;//size of Image is in bits
     let speed_kbps= speed_bps/1024;//in kilobits per second
-    //If I am using URL4 then I am assuming that the speed is above 500KBPS or 4000Kbps 
-    // if(time<0.9){
-    //     currentURL=url2;//bigger url //around 200kb
-    //     currentSize=sizeImg2;
-    // }
-    // if(time<0.5){
-    //     currentURL=url3; //even bigger url //around 700kb
-    //     currentSize=sizeImg3;
-    // }
-    // if(time<0.2){
-    //     currentURL=url4; //even bigger url //around 4mb
-    //     currentSize=sizeImg4;
-    // }
-    // if(time<0.05){
-    //     currentURL=url5; //the biggest // around 7mb
-    //     currentSize=sizeImg5;
-    // }
-    // if(time>0.95){
-    //     currentURL=url4;
-    //     currentSize=sizeImg4;
-    // }
-    // if(time>1){
-    //     currentURL=url3;
-    //     currentSize=sizeImg3;
-    // }
-    if(speed_kbps<1500){
-        currentURL=url1;
-        currentSize=sizeImg1;
-    }
-    else if(speed_kbps<5000){
-        currentURL=url2;
-        currentSize=sizeImg2;
-    }
-    else if(speed_kbps>7500){
-        currentURL=url4;
-        currentSize=sizeImg4;
-    }
-    //I am still assumiing that user should have a speed of at least 115KBps
-    return speed_kbps;
+    let appSpeed_Kbps=(currentSize/appTime)/1024;
+    return [speed_kbps,appSpeed_Kbps];
 }
 async function mentionSpeed()
 {
-        let sum=0;
+        let realSum=0;
+        let appSum=0;
         for(let i=1; i<=3; i++){
             let intSpeed= await getInternetSpeed();
-            sum+=intSpeed;
+            realSum+=intSpeed[0];
+            appSum+=intSpeed[1];
         }
-        let avgSpeed=sum/3;
-        allSpeeds.push(avgSpeed);
-        speed.innerText=`${(avgSpeed/1024).toFixed(2)}`;
+        let avgSpeed=realSum/3;
+        let appAvgSpeed=appSum/3;
+        allSpeeds.push(appAvgSpeed);
+        // if(avgSpeed<1500){
+        //     currentURL=url1;
+        //     currentSize=sizeImg1;
+        // }
+        // else if(avgSpeed<6500){
+        //     currentURL=url2;
+        //     currentSize=sizeImg2;
+        // }
+        // else if(avgSpeed>6500){
+        //     currentURL=url4;
+        //     currentSize=sizeImg4;
+        // }
+        // else if(avgSpeed>18000){
+        //     currentURL=url5;
+        //     currentSize=sizeImg5;
+        // }
+        if(avgSpeed>950){
+            currentURL=url2;
+            currentSize=sizeImg2;
+        }
+        if(avgSpeed>6100){
+            currentURL=url4;
+            currentSize=sizeImg4;
+        }
+        if(avgSpeed>55000){
+            currentURL=url5;
+            currentSize=sizeImg5;
+        }
+        let speed_Mbps=appAvgSpeed/1024;
+        if(speed_Mbps>=1)
+        {
+            speed.innerText=`${(speed_Mbps).toFixed(2)}`;
+            unit.innerText=`Mbps`;
+        }
+        else{
+            speed.innerText=`${appAvgSpeed.toFixed(1)}`;
+            unit.innerText=`Kbps`;
+        }
 }
 function changeColor(clr){
     btn.style.color=clr;
@@ -129,7 +136,7 @@ btn.addEventListener("click", async function() {
             changeColor(`red`);
             btn.innerText=`Stop`;
             clearInterval(intervalId);
-            intervalId = setInterval(mentionSpeed, 3000);
+            intervalId = setInterval(mentionSpeed, 4000);
             if(alreadyclicked==true)
             {
                 timeout=setTimeout(() => {
@@ -138,7 +145,7 @@ btn.addEventListener("click", async function() {
                     changeColor(`rgb(0,200,0)`);
                     btn.innerText=`Check Speed`;
                     alreadyclicked=false;
-                }, 30000);
+                }, 60000);
             }
         }
         else{
@@ -201,6 +208,9 @@ function updateFaviconChangeMode(){
 }
 updateFaviconChangeMode();
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener("change", updateFaviconChangeMode);
+
+
+//ROUGH code
 //FALTU STUFF JUST FOR CHECKING CONCEPTS
 // async function timepass(){
 //    return new Promise((resolve, reject)=>{
@@ -218,4 +228,29 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener("change", upd
 //     console.log(b-a);
 // }
 // aa();
-
+//If I am using URL4 then I am assuming that the speed is above 500KBPS or 4000Kbps 
+    // if(time<0.9){
+    //     currentURL=url2;//bigger url //around 200kb
+    //     currentSize=sizeImg2;
+    // }
+    // if(time<0.5){
+    //     currentURL=url3; //even bigger url //around 700kb
+    //     currentSize=sizeImg3;
+    // }
+    // if(time<0.2){
+    //     currentURL=url4; //even bigger url //around 4mb
+    //     currentSize=sizeImg4;
+    // }
+    // if(time<0.05){
+    //     currentURL=url5; //the biggest // around 7mb
+    //     currentSize=sizeImg5;
+    // }
+    // if(time>0.95){
+    //     currentURL=url4;
+    //     currentSize=sizeImg4;
+    // }
+    // if(time>1){
+    //     currentURL=url3;
+    //     currentSize=sizeImg3;
+    // }
+    //I am still assumiing that user should have a speed of at least 115KBps
