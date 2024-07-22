@@ -161,6 +161,8 @@ function darkmode(){
     darkMode.classList.add("invisible");
     lightMode.style.color="white";
     darkMode.style.color="white";
+    let speedWhole=document.getElementById("speed");
+    speedWhole.style.color="rgb(171,166,166)";
 }
 function lightmode(){
     slider.classList.remove("active");
@@ -173,6 +175,8 @@ function lightmode(){
     lightMode.classList.add("invisible");
     lightMode.style.color="black";
     darkMode.style.color="black";
+    let speedWhole=document.getElementById("speed");
+    speedWhole.style.color="violet";
 }
 btnSlider.addEventListener("click", function(){
     if(slider.classList.length==0)//dark mode
