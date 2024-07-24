@@ -49,7 +49,7 @@ async function getInternetSpeed(){
         time=1;
     }
     time=time/1000;
-    let appTime=90*time/100;//considering delay from urls
+    let appTime=87*time/100;//considering delay from urls
     if(currentURL==url1){
         appTime=78*time/100;
     }
@@ -136,7 +136,7 @@ btn.addEventListener("click", async function() {
             changeColor(`red`);
             btn.innerText=`Stop`;
             clearInterval(intervalId);
-            intervalId = setInterval(mentionSpeed, 4000);
+            intervalId = setInterval(mentionSpeed, 3500);
             if(alreadyclicked==true)
             {
                 timeout=setTimeout(() => {
@@ -145,7 +145,7 @@ btn.addEventListener("click", async function() {
                     changeColor(`rgb(0,200,0)`);
                     btn.innerText=`Check Speed`;
                     alreadyclicked=false;
-                }, 60000);
+                }, 120000);
             }
         }
         else{
