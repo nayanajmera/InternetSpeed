@@ -56,6 +56,9 @@ async function getInternetSpeed(){
     else if(currentURL==url2){
         appTime=83*time/100;
     }
+    if(currentURL==url5){
+        appTime=60*time/100);
+    }
     console.log(currentSize, time);
     let speed_bps = currentSize/time;//size of Image is in bits
     let speed_kbps= speed_bps/1024;//in kilobits per second
