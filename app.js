@@ -94,7 +94,7 @@ async function mentionSpeed()
             currentURL=url2;
             currentSize=sizeImg2;
         }
-        if(avgSpeed>6100){
+        if(avgSpeed>5000){
             currentURL=url4;
             currentSize=sizeImg4;
         }
