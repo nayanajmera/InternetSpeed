@@ -138,8 +138,7 @@ btn.addEventListener("click", async function() {
             changeColor(`red`);
             btn.innerText=`Stop`;
             clearInterval(intervalId);
-            intervalId = setInterval(mentionSpeed, 3500);
-            intervalId = setInterval(mentionSpeed, 5000);
+            intervalId = setInterval(mentionSpeed, 4000);
             if(alreadyclicked==true)
             {
                 timeout=setTimeout(() => {
