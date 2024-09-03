@@ -159,6 +159,7 @@ btn.addEventListener("click", async function() {
             changeColor(`rgb(0,200,0)`);
             btn.innerText=`Check Speed`;
             calculateAvgOfAll();
+            location.reload(true);
         }
 });
 function darkmode(){
