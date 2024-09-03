@@ -138,6 +138,7 @@ btn.addEventListener("click", async function() {
             changeColor(`red`);
             btn.innerText=`Stop`;
             clearInterval(intervalId);
+            intervalId = setInterval(mentionSpeed, 3500);
             intervalId = setInterval(mentionSpeed, 5000);
             if(alreadyclicked==true)
             {
@@ -147,6 +148,7 @@ btn.addEventListener("click", async function() {
                     changeColor(`rgb(0,200,0)`);
                     btn.innerText=`Check Speed`;
                     alreadyclicked=false;
+                }, 120000);
                 }, 65000);
             }
         }
