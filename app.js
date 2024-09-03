@@ -148,6 +148,7 @@ btn.addEventListener("click", async function() {
                     changeColor(`rgb(0,200,0)`);
                     btn.innerText=`Check Speed`;
                     alreadyclicked=false;
+                    location.reload(true);
                 }, 120000);
             }
         }
