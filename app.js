@@ -50,7 +50,7 @@ async function getInternetSpeed(){
         time=1;
     }
     time=time/1000;
-    let appTime=90*time/100;//considering delay from urls
+    let appTime=85*time/100;//considering delay from urls
     // if(currentURL==url1){
     //     appTime=78*time/100;
     // }
@@ -149,7 +149,6 @@ btn.addEventListener("click", async function() {
                     btn.innerText=`Check Speed`;
                     alreadyclicked=false;
                 }, 120000);
-                }, 65000);
             }
         }
         else{
