@@ -50,7 +50,7 @@ async function getInternetSpeed(){
         time=1;
     }
     time=time/1000;
-    let appTime=85*time/100;//considering delay from urls
+    let appTime=42*time/100;//considering delay from urls
     // if(currentURL==url1){
     //     appTime=78*time/100;
     // }
